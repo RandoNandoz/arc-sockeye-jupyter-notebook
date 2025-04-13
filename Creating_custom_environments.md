@@ -68,4 +68,4 @@ R
 IRkernel::installspec(name = "my_r_env", displayname = "R (My Environment)")
 ```
 
-Once you're done, run `exit` in the shell, and then go follow the instructions at the top to run the image you just created.
+Once you're done, run `exit` in the shell, and then go to [Initializing a Jupyter Notebook Instance](Initializing%20a%20Jupyter%20Notebook%20Instance.md)
