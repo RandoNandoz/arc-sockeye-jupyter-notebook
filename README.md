@@ -7,5 +7,5 @@
 ### Topics
 
 - [Inital Setup](Setup%20and%20Apptainer.md)
-- [Running Jupyter Notebook on Compute Nodes](Jupyter%20Notebook%20on%20ARC%20Sockeye.md)
+- [Running Jupyter Notebook on Compute Nodes](Initializing%20a%20Jupyter%20Notebook%20Instance.md)
 - [Creating custom environments](Creating_custom_environments.md)
