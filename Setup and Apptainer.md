@@ -117,7 +117,10 @@ Now that you're "done" setting up, here are some next steps.
 
 If you *are* happy with the packages that are installed in the `jupyter-datascience` image, then you can proceed to [Initializing a Jupyter Notebook Instance](Initializing%20a%20Jupyter%20Notebook%20Instance.md).
 
+#### Need GPUs?
+
+See [Adding GPU Support](./Adding%20GPU%20Support.md). Do this before you create new environments.
+
 #### Need more packages?
 
 If you (suspect) you require more packages in your notebook's environment, have a look at [Creating Custom Environments](Creating_custom_environments.md).
-
