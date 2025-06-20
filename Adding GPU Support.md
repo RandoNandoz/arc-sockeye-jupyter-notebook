@@ -22,9 +22,9 @@ cp ./jupyter-datascience.sh jupyter-pytorch-gpu.sh
 
 Now, using your editor of choice (mine is `vim`), patch these lines:
 
-- `#SBATCH --account=<allocation>` $\rightarrow$ `#SBATCH --account=<allocation>-gpu`
+- `#SBATCH --account=<allocation>` should now be `#SBATCH --account=<allocation>-gpu`
   - For instance, if your account was originally `st-researcher-1`, it should be `st-researcher-1-gpu`.
-- `#SBATCH --partition=interactive_cpu` $\rightarrow$ `#SBATCH --partition=interactive_gpu`
+- `#SBATCH --partition=interactive_cpu` should now be `#SBATCH --partition=interactive_gpu`
 - In the last line of the script, you should have command that looks like `apptainer exec [...]`, where the elided part runs `jupyter` notebook with some custom environment variables.
   - Append `--nv` after `apptainer exec`, so your new command looks like `apptainer exec --nv [...]` (elided part stays the same)
 
