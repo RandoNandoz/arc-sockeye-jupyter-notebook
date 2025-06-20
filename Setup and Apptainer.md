@@ -29,7 +29,7 @@ Before we get started with running notebooks on Sockeye, we have to pull the req
    
    ```bash
     module load gcc apptainer
-    cd /arc/project/allocation/jupyter
+    cd /arc/project/<allocation>/jupyter
     apptainer pull --name jupyter-datascience.sif docker://quay.io/jupyter/datascience-notebook
    ```
     ###### Updating your container

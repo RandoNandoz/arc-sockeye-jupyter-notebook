@@ -39,26 +39,33 @@ and for the R kernel:
 conda install -c conda-forge r-irkernel /arc/project/<allocation>/jupyter/<your_environment_name>
 ```
 
-To install packages, run:
+To install packages:
 
-```
-conda install -y <your package(s)> --prefix /arc/project/<allocation>/jupyter/<your_environment_name>
-```
 
-> [!WARNING]
-> All R packages must be installed using conda-forge. Fortunately, almost every package can be installed this way. Do not try installing using `install.packages()`. You will break things.
 
-Then, you must package your environment into a kernel image like so:
+**WARNING: All R packages must be installed using conda-forge. Fortunately, almost every package can be installed this way. Do not try installing using `install.packages()`. You will break things.**
+
+Activate the conda environment we created in a previous step with:
 
 ```
 source activate /arc/project/<allocation>/jupyter/<your_environment_name>
 ```
 
+Then use `conda` and `pip` as normal.
+
+
+
+Once you are satisfied with the packages you installed, package your environment into a kernel image like so:
+
+
 ```
 python -m ipykernel install --user --name <your_environment_name>
 ```
 
-and initialize the R kernel using:
+<details>
+<summary>If you installed R and related R packages:</summary>
+
+Initialize the R kernel using:
 
 ```
 R
@@ -67,5 +74,8 @@ R
 ```
 IRkernel::installspec(name = "my_r_env", displayname = "R (My Environment)")
 ```
+
+</details>
+
 
 Once you're done, run `exit` in the shell, and then go to [Initializing a Jupyter Notebook Instance](Initializing%20a%20Jupyter%20Notebook%20Instance.md)

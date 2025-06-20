@@ -46,11 +46,8 @@ scancel 4889894
 ```
 
 Here's a breakdown of the instructions:
-1. For point number one, this command should be run on your OWN laptop inside of a terminal window.
+- For point number one, this command should be run on your OWN laptop inside of a terminal window. **DO NOT CLOSE THIS WINDOW AS IT ACTIVELY PROVIDES THE CONNECTION!**
 
-> [!WARNING]
->  **DO NOT CLOSE THIS WINDOW AS IT ACTIVELY PROVIDES THE CONNECTION!**
+-  Once this is run, go to your browser of choice, and navigate to http://localhost:8888
 
-2. Once this is run, go to your browser of choice, and navigate to http://localhost:8888
-
-3. For number 3, just quit the instance once you're done.
+<!-- 1. For number 3, just quit the instance once you're done. -->
