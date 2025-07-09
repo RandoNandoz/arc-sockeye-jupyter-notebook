@@ -6,6 +6,7 @@ Inside `/arc/project/<allocation>/jupyter/jupyter-datascience.sif` is an image t
 
 We will modify it using this command:
 
+
 First run:
 
 ```
@@ -13,8 +14,13 @@ module load gcc
 module load apptainer
 ```
 
+Create a place to store your environments
 ```
-apptainer shell --home /scratch/<allocation>/<CWL>>/my_jupyter/ --env XDG_CACHE_HOME=/scratch/<allocation>/<CWL>/my_jupyter /arc/project/<allocation>/jupyter/jupyter-datascience.sif
+mkdir /arc/project/<allocation>/<cwl>/jupyter
+```
+
+```
+apptainer shell --home /scratch/<allocation>/<cwl>/my_jupyter/ --env XDG_CACHE_HOME=/scratch/<allocation>/<cwl>/my_jupyter /arc/project/<allocation>/<cwl>/images/jupyter-datascience.sif
 ```
 Once you run this, you should see a prompt like so:
 
@@ -25,18 +31,18 @@ Apptainer>
 Inside the prompt, run:
 
 ```
- conda create --prefix /arc/project/<allocation>/jupyter/<your_environment_name>
+conda create --prefix /arc/project/<allocation>/<cwl>/jupyter/<your_environment_name>
 ```
 
 And then run:
 
 ```
-conda install -y ipykernel --prefix /arc/project/<allocation>/jupyter/<your_environment_name>
+conda install -y ipykernel --prefix /arc/project/<allocation>/<cwl>/jupyter/<your_environment_name>
 ```
 
 and for the R kernel:
 ```
-conda install -c conda-forge r-irkernel /arc/project/<allocation>/jupyter/<your_environment_name>
+conda install -c conda-forge r-irkernel /arc/project/<allocation>/<cwl>/jupyter/<your_environment_name>
 ```
 
 To install packages:
@@ -48,7 +54,7 @@ To install packages:
 Activate the conda environment we created in a previous step with:
 
 ```
-source activate /arc/project/<allocation>/jupyter/<your_environment_name>
+source activate /arc/project/<allocation>/<cwl>/jupyter/<your_environment_name>
 ```
 
 Then use `conda` and `pip` as normal.
