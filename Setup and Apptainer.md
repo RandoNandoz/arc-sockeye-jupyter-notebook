@@ -19,17 +19,17 @@ Before we get started with running notebooks on Sockeye, we have to pull the req
 
 #### Instructions
 
-1. ##### Create the directory in `/arc/project/<allocation>` to store your images.
+1. ##### Create the directory in `/arc/project/<allocation>/<cwl>` to store your images.
 
     ```bash
-    mkdir /arc/project/<allocation>/jupyter
+    mkdir /arc/project/<allocation>/<cwl>/images
     ```
 
 2. ###### Pull the `jupyter/datascience-notebook` container from `quay.io` into your image folder.
    
    ```bash
     module load gcc apptainer
-    cd /arc/project/<allocation>/jupyter
+    cd /arc/project/<allocation>/<cwl>/images
     apptainer pull --name jupyter-datascience.sif docker://quay.io/jupyter/datascience-notebook
    ```
     ###### Updating your container
@@ -43,10 +43,10 @@ Before we get started with running notebooks on Sockeye, we have to pull the req
     First, create a job directory in `/scratch` for your personal Jupyter Notebooks to use as scratch space - ARC Sockeye has a file count quota on top of a file size quota, and files produced by Jupyter can cause you to hit this limit. Run this command to do so:
 
     ```bash
-    mkdir -p /scratch/<allocation>/<cwl>/jupyter
+    mkdir -p /scratch/<allocation>/<cwl>/my_jupyter
     ```
 
-    Now, put this script wherever you would like. A good spot could be in your home folder, but in this guide, we'll use `/arc/project/<allocation>/<cwl>/jupyter-datascience.sh`.
+    Now, put this script wherever you would like. A good spot could be in your home folder, but in this guide, we'll use `/arc/project/<allocation>/<cwl>/jupyter-datascience.sh`. Make sure to replace the parameters in angle brackets with your allocation and cwl!
     
 <details>
 <summary>Job script</summary>
@@ -103,7 +103,7 @@ Before we get started with running notebooks on Sockeye, we have to pull the req
     END
     
     # Execute jupyter within the Apptainer container
-    apptainer exec --home /scratch/st-lknelson-1/iberez01/my_jupyter --env XDG_CACHE_HOME=/scratch/st-lknelson-1/iberez01/my_jupyter /arc/project/st-lknelson-1/jupyter/jupyter-datascience.sif jupyter notebook --no-browser --port=${PORT} --ip=0.0.0.0 --notebook-dir=$SLURM_SUBMIT_DIR
+    apptainer exec --home /scratch/<allocation>/<cwl>/my_jupyter --env XDG_CACHE_HOME=/scratch/<allocation>/<cwl>/my_jupyter /arc/project/<allocation>/<cwl>/images/jupyter-datascience.sif jupyter notebook --no-browser --port=${PORT} --ip=0.0.0.0 --notebook-dir=$SLURM_SUBMIT_DIR
     ```
     
 </details>

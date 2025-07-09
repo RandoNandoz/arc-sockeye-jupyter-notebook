@@ -33,7 +33,7 @@ Now, using your editor of choice (mine is `vim`), patch these lines:
 #### Downloading the new container image
 
 We mentioned that there are no CUDA drivers with the CPU image, so we'll have to pull a new one.
-Recall we store our images in `/arc/project/<allocation>/jupyter`, so let's `cd` to it:
+Recall we store our images in `/arc/project/<allocation>/<cwl>/images`, so let's `cd` to it:
 
 ```
 cd /arc/project/<allocation>/jupyter
@@ -53,7 +53,7 @@ When you edit the file, the last line should look something like this:
 apptainer exec --nv --home /scratch/<allocation>/<cwl>/my_jupyter --env XDG_CACHE_HOME=/scratch/<allocation>/<cwl>/my_jupyter /arc/project/<allocation>/jupyter/jupyter-datascience.sif jupyter notebook --no-browser --port=${PORT} --ip=0.0.0.0 --notebook-dir=$SLURM_SUBMIT_DIR
 ```
 
-Change the `/arc/project/<allocation>/jupyter/jupuyter-datascience.sif` line, which is before the invocation of `jupyter notebook` to `/arc/project/<allocation>/jupyter/jupyter-pytorch-cuda.sif`. Now our slurm script uses a CUDA-enabled container.
+Change the `/arc/project/<allocation>/<cwl>/images/jupuyter-datascience.sif` line, which is before the invocation of `jupyter notebook` to `/arc/project/<allocation>/<cwl>/images/jupyter-pytorch-cuda.sif`. Now our slurm script uses a CUDA-enabled container.
 
 I highly recommend you create a new environment for GPU-related work. See [Creating Custom Environments](./Creating_custom_environments.md) for more details.
 
