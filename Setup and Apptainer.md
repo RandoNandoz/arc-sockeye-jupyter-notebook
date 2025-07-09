@@ -46,7 +46,7 @@ Before we get started with running notebooks on Sockeye, we have to pull the req
     mkdir -p /scratch/<allocation>/<cwl>/jupyter
     ```
 
-    Now, put this script wherever you would like. A good spot could be in your home folder, but in this guide, we'll use `/arc/project/<allocation>/<cwl>/jupyter-datascience.sh`.
+    Now, put this script wherever you would like. A good spot could be in your home folder, but in this guide, we'll use `/arc/project/<allocation>/<cwl>/jupyter-datascience.sh`. Make sure to replace the parameters in angle brackets with your allocation and cwl!
     
 <details>
 <summary>Job script</summary>
@@ -103,7 +103,7 @@ Before we get started with running notebooks on Sockeye, we have to pull the req
     END
     
     # Execute jupyter within the Apptainer container
-    apptainer exec --home /scratch/st-lknelson-1/iberez01/my_jupyter --env XDG_CACHE_HOME=/scratch/st-lknelson-1/iberez01/my_jupyter /arc/project/st-lknelson-1/jupyter/jupyter-datascience.sif jupyter notebook --no-browser --port=${PORT} --ip=0.0.0.0 --notebook-dir=$SLURM_SUBMIT_DIR
+    apptainer exec --home /scratch/<allocation>/<your_cwl>/my_jupyter --env XDG_CACHE_HOME=/scratch/<allocation>/<your_cwl>/my_jupyter /arc/project/<allocation>/jupyter/jupyter-datascience.sif jupyter notebook --no-browser --port=${PORT} --ip=0.0.0.0 --notebook-dir=$SLURM_SUBMIT_DIR
     ```
     
 </details>
